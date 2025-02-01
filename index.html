@@ -7,7 +7,8 @@
 </head>
 <body>
     <script>
-        function getComputerChoice() {
+        function playGame() {
+            function getComputerChoice() {
             let randomNum = Math.floor(Math.random() * 3) + 1;
             switch (randomNum) {
                 case 1:
@@ -67,6 +68,28 @@
 
         let humanScore = 0;
         let computerScore = 0;
+
+        for (let i = 1; i <= 5; i++) {
+            console.log("Round " + i);
+            playRound(getHumanChoice(), getComputerChoice());
+            console.log("\n");
+        }
+        console.log("\n\n");
+
+        console.log("Human score: " + humanScore);
+        console.log("Computer score: " + computerScore);
+        console.log("\n");
+
+        if(humanScore === computerScore) {
+            console.log("It's a tie! the game has no winner")
+        } else if(humanScore > computerScore) {
+            console.log("The winner is Human!");
+        } else {
+            console.log("The winner is Computer");
+        }
+    }
+
+        playGame();
     </script>
 </body>
 </html>
