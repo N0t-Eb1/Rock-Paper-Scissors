@@ -9,12 +9,60 @@
     <script>
         function getComputerChoice() {
             let randomNum = Math.floor(Math.random() * 3) + 1;
-            return randomNum;
+            switch (randomNum) {
+                case 1:
+                    return "rock";
+                case 2:
+                    return "paper";
+                case 3:
+                    return "scissors";
+            }
         }
 
         function getHumanChoice() {
-            let humanChoice = prompt("Choose your hand\n\n" + "Rock: 1\n" + "Paper: 2\n" + "Scissors: 3");
+            let humanChoice = prompt("Choose your hand", "Rock, Paper, Scissors");
             return humanChoice;
+        }
+
+        function checkWinner(human, computer) {
+            switch (human) {
+                case "rock":
+                    if(computer === "paper")
+                        return "Computer";
+                    else
+                        return "You";
+
+                case "paper":
+                    if(computer === "rock")
+                        return "You";
+                    else
+                        return "Computer";
+                    
+                case "scissors":
+                    if(computer === "rock")
+                        return "Computer";
+                    else
+                        return "You";
+            }
+        }
+
+        function playRound(humanChoice, computerChoice) {
+            humanChoice = humanChoice.toLowerCase();
+            console.log("human: " + humanChoice);
+            console.log("computer: " + computerChoice);
+            let winner;
+            if(humanChoice === computerChoice) {
+                console.log("It's a tie!");
+            } else {
+                winner = checkWinner(humanChoice, computerChoice);
+                if(winner === "You") {
+                    console.log(`You won! ${humanChoice} beats ${computerChoice}`);
+                    humanScore++;
+                } else {
+                    console.log(`Computer won! ${computerChoice} beats ${humanChoice}`);
+                    computerScore++;
+                }
+            }
         }
 
         let humanScore = 0;
