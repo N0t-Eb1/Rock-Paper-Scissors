@@ -1,1 +1,1 @@
-# Rock-Paper-Scissors
+This ripository contains code for a simple rock, paper, scissors game that will run entierly on the console
